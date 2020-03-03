@@ -1,8 +1,7 @@
 FactoryBot.define do
   factory :product do
-    category_id { "" }
-    name { "MyString" }
-    description { "MyString" }
-    price { 1.5 }
+    name { "Swedish meatballs" }
+    description { "Swedish meatballs with mashed potatoes and lingonberry jam" }
+    price { 21.0 }
   end
 end
