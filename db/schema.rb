@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_143554) do
   enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
+    t.bigint "category_id"
     t.string "name"
     t.string "description"
     t.float "price"
