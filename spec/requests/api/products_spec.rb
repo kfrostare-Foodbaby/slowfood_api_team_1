@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe Api::ProductsController, type: :request do
   let!(:products) { 3.times { create(:product) } }
 
