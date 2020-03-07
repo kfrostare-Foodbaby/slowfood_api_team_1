@@ -16,6 +16,6 @@ class Api::OrdersController < ApplicationController
   
   def create_json_response(order)
     json = { order: OrderSerializer.new(order) }
-    json.merge!(message: 'The product has been added to your order')
+    json.merge!(message: 'This item has been added to your order.')
   end
 end

@@ -2,11 +2,13 @@
 RSpec.describe Api::OrdersController, type: :request do
   let!(:product_1) { create(:product, name: 'Salad', price: 10) }
   let!(:product_2) { create(:product, name: 'Ice Cream', price: 20) }
+  
   before do
     post '/api/orders', params: { product_id: product_1.id }
     order_id = JSON.parse(response.body)['order']['id']
     @order = Order.find(order_id)
   end
+  
   describe 'POST /api/orders' do
     it 'responds with success message' do
       expect(JSON.parse(response.body)['message']).to eq 'This item has been added to your order.'
@@ -21,6 +23,7 @@ RSpec.describe Api::OrdersController, type: :request do
       expect(JSON.parse(response.body)['order']['total']).to eq 10
     end
   end
+
   describe 'PUT /api/orders/:id' do
     before do
       put "/api/orders/#{@order.id}", params: { product_id: product_2.id }
