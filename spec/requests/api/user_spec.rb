@@ -17,7 +17,6 @@ RSpec.describe 'POST /api/auth/', type: :request do
     end
 
     it 'returns a success message' do
-      binding.pry
       expect(JSON.parse(response.body)['status']).to eq 'success'
     end
   end
