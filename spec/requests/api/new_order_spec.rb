@@ -5,22 +5,22 @@ RSpec.describe Api::OrdersController, type: :request do
   
   before do
     post '/api/orders', params: { product_id: product_1.id }
-    order_id = JSON.parse(response.body)['order']['id']
+    order_id = (response_json)['order']['id']
     @order = Order.find(order_id)
   end
   
   describe 'POST /api/orders' do
     it 'responds with success message' do
-      expect(JSON.parse(response.body)['message']).to eq 'This item has been added to your order.'
+      expect((response_json)['message']).to eq 'This item has been added to your order.'
     end
     it 'responds with order id' do
-      expect(JSON.parse(response.body)['order']['id']).to eq @order.id
+      expect((response_json)['order']['id']).to eq @order.id
     end
     it 'responds with right amount of products' do
-      expect(JSON.parse(response.body)['order']['products'].count).to eq 1
+      expect((response_json)['order']['products'].count).to eq 1
 		end
 		it 'responds with right order total' do
-      expect(JSON.parse(response.body)['order']['total']).to eq 10
+      expect((response_json)['order']['total']).to eq 10
     end
   end
 
@@ -33,13 +33,13 @@ RSpec.describe Api::OrdersController, type: :request do
       expect(@order.order_items.count).to eq 3
     end
     it 'responds with order id' do
-      expect(JSON.parse(response.body)['order']['id']).to eq @order.id
+      expect((response_json)['order']['id']).to eq @order.id
     end
     it 'responds with right amount of unique products' do
-      expect(JSON.parse(response.body)['order']['products'].count).to eq 2
+      expect((response_json)['order']['products'].count).to eq 2
     end
     it 'responds with right order total' do
-      expect(JSON.parse(response.body)['order']['total']).to eq 50
+      expect((response_json)['order']['total']).to eq 50
     end
   end
 end
