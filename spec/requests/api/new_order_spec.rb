@@ -7,7 +7,6 @@ RSpec.describe Api::OrdersController, type: :request do
     post '/api/orders', params: { product_id: product_1.id }
     order_id = (response_json)['order']['id']
     @order = Order.find(order_id)
-    order_id.confirm = false
   end
   
   describe 'POST /api/orders' do
