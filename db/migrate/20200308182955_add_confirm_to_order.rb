@@ -1,5 +1,5 @@
 class AddConfirmToOrder < ActiveRecord::Migration[6.0]
   def change
-    add_column :orders, :confirm, :boolean
+    add_column :orders, :confirm, :boolean, default: false
   end
 end

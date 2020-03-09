@@ -4,8 +4,4 @@ class Order < ApplicationRecord
   def order_total
     order_items.joins(:product).sum('products.price')
   end
-
-  def confirm
-    
-  end
 end
