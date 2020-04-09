@@ -1,4 +1,5 @@
-# The Slowfood Challenge | Team 1
+# FoodBaby (API)
+![FoodBaby](public/foodbaby.png)
 ### Authors
 [Emma-Maria Thalen](https://github.com/emtalen)  
 [Kayla Woodbury](https://github.com/kaylawoodbury)  
@@ -7,52 +8,44 @@
 ## Built with
 **Front End:** React v.16.12.0 | CSS  
 **Back End:** Ruby 2.5.1 | Rails 6.0.2 
-**Testing framework:** Rspec 
+**Testing framework:** Cypress  
 **Deployed at:** [Netlify](https://slowfood-team1.netlify.com/) and [Heroku](https://yummy-food-api.herokuapp.com).
 ## The code   
-This project is the backend API for our Slowfood application. The master repository for the Slowfood client side, built with React, can be found [Here](https://github.com/CraftAcademy/slowfood-client-team-1).
+This project is the client facing side of our Slowfood application. The master repository for the Slowfood API, built in Rails, can be found [Here](https://github.com/CraftAcademy/slowfood_api_team_1).
 ## Getting started
 ### Dependencies  
-* Ruby
-* Rails
-* Rspec
-* Puma
-* Devise
-* Pry
-* Shouda-Matchers
-* Coveralls
-* Factory Bot
-* Bootsnap
-
+* Yarn
+* React
+* Cypress
+* Axios
 ### Setup   
 To test this application, fork the repo to your own GitHub account and clone it to your local workspace. </br>
-*Note:*Be sure to set up the front end (noted above), in order to fully interact with the application. 
-To install all of the dependencies:  
+*Note:* Be sure to set up backend api first (noted above), in order to fully interact with the application. 
+Install all of the dependencies:    
 ```
-$ bundle install 
+$ yarn install
+```  
+Start cypress and run the feature tests:  
 ```
-To create a new database with sample data:  
+$ yarn run cy:open
 ```
-$ rails db:create db:migrate db:seed 
-```
-To run the unit tests:  
-
-```
-$ rspec
-``` 
-  
-To start the application and run it on your local host:
+Start the backend api (if already configured) in a separate terminal (only run this command for the Rails application):
 ```
 $ rails s
 ```
-
+Start the React application and run it on your local host:
+```
+$ yarn start
+```
 ## Updates/Improvements   
-- Set up API functionality to allow user to finalize order
-- Set up API functionality to provide information about order
-- Set up functionality to allow resturant user to have distinct functionality from basic user, such as adding/updating/deleting menu, etc
-- Set up payment functionality instead of telling user to pay at store
-- Set up more user account information
-
+- The menu should be displayed even when you're not authenticated, but the order functionality should not be visible if you're not authenticated (use non-component states)
+- Adding a restaurant owner interface
+- For user to be able to delete their order
+- For user to be able to remove specific items from existing order
+- Update functionality for adding multiple of the same item without having to click the button several time
+- Having a 'special-requests'- section for a dish, for example accommodating allergies
+- Refactoring and extracting certain functionalities to make the code more readable
+- Add more styling
 ## License  
 [MIT-license](https://en.wikipedia.org/wiki/MIT_License)
 ### Acknowledgement  
